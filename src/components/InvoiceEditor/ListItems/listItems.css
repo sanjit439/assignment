@@ -1,0 +1,59 @@
+
+.list-items   {
+
+   
+    border-top:1px solid #ccc;
+    margin-bottom:15px;
+  }
+  
+  .list-items li{
+   display:flex;
+   padding:7px 10px;
+   border-bottom:1px solid #ccc;
+  } 
+  .list-items li:hover{
+      background:#f2f2f2;
+      cursor:pointer;
+  }
+ 
+  .list-item-name{
+  width:40%;
+  padding-right:5px;
+  text-transform: capitalize;
+  line-height: 1.4rem;
+  }
+  .list-item-qty{
+  width:20%;
+  text-align: center;
+  }
+  .list-item-price{
+  width:20%;
+  text-align: center;
+  padding-right:4px;
+  }
+  .list-item-total{
+  width:15%;
+  text-align:center;
+  }
+  .list-item-name,.list-item-qty,.list-item-price,.list-item-total{
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .list-item-remove{
+    display:inline-flex;
+    width:5%;
+    cursor:pointer;
+    font-size:20px;
+    justify-content:flex-end;
+    color:rgb(0,115,177);
+  
+  }
+  .list-item-add{
+    color:rgb(0,115,177);
+    margin-left:10px;
+    cursor:pointer;
+    margin-bottom:20px;
+    display: inline-block;
+  }
+  

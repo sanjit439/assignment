@@ -1,0 +1,25 @@
+.container{
+  width:96%;
+  max-width:1200px;
+  display:flex;
+  margin:0 auto;
+  padding-top:15px;
+  justify-content: center;
+  color:#4a4a4a;
+  }
+
+
+
+/*atomic classes*/
+
+.pull-left{margin-right:auto}
+.pull-right{margin-left:auto}
+.display-flex{display:flex;}
+.append-bottom5 {margin-bottom:5px;}
+
+/*/atomic classes*/
+
+
+
+
+
