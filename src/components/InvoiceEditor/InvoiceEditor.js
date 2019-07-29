@@ -7,13 +7,12 @@ import ItemForm from '../ItemForm/ItemForm'
 import Modal from './Modal/Modal'
 import './invoiceEditor.css'
 import {removeItem,changeActiveList} from '../../store/Actions';
-import {changeToTwoDecPlaces} from '../../utility'
+
 
 export class InvoiceEditor extends React.Component {
     constructor(props){
         super(props)
         this.partialTotal=0;
-        this.tax=0;      
         this.state={
                 addItemPopup:false        
         }
@@ -29,17 +28,18 @@ export class InvoiceEditor extends React.Component {
     }
   }
   
+  calculateTax=(sum,rate)=>sum * rate/100;
    
   render() {
     const {addItemPopup}=this.state;
     const{remove,changeActive,list}=this.props;
-    this.partialTotal= changeToTwoDecPlaces(list.reduce((total,item)=>total+(item.qty*item.price),0));
-    this.tax=changeToTwoDecPlaces(this.partialTotal*0.05);
+    this.partialTotal= list.reduce((total,item)=>total+(item.qty*item.price),0);
+   
    
     return (
         <div className="invoice-container">
             <ListItems remove={remove} changeActive={changeActive}  togglePopup={this.togglePopup} items={list}/>
-            <OrderTotal partialTotal={this.partialTotal} tax={this.tax} totalSum={this.totalSum}/>
+            <OrderTotal partialTotal={this.partialTotal} tax={this.calculateTax(this.partialTotal,5)} totalSum={this.totalSum}/>
             {addItemPopup && <Modal close= {this.togglePopup}>
             <ItemForm confirm={this.add} close= {this.togglePopup}/>
             </Modal>}     

@@ -28,7 +28,7 @@ export class ItemForm extends React.Component {
           itemInfo:{
             name: list[activeIndex].name,
             price:list[activeIndex].price,
-            qty:list[activeIndex].qty
+            qty:parseInt(list[activeIndex].qty,10)
           }
         })
     }
@@ -70,7 +70,7 @@ submit=(e)=>
   const newItem={
     name:itemInfo.name,
     price:itemInfo.price,
-    qty:itemInfo.qty
+    qty:parseInt(itemInfo.qty,10)
 
   }
   if(!itemInfo.name || !itemInfo.price || !itemInfo.qty)
